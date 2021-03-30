@@ -30,8 +30,7 @@ node {
             if (isUnix()) {		  
                 rc = sh returnStatus: true, script: "${toolbelt} force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${jwt_key_file} --instanceurl ${SFDC_HOST} --setdefaultdevhubusername"
             }else{
-                 rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --clientid 3MVG9YDQS5WtC11r0y4BrDKmuCu3UiHRG8ijJ92.kMuwakOKxRV.LzarIpvpNdN5EWuP1eYlLYQlsA0_8Y2rC --jwtkeyfile c:\Software\Openssl\bin\server.key --username superorg@sur.singh --instanceurl https://login.salesforce.com --setdefaultdevhubusername    
-		   						       //force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\"  --instanceurl ${SFDC_HOST} --setdefaultdevhubusername"
+                 rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\"  --instanceurl ${SFDC_HOST} --setdefaultdevhubusername"
             }
             if (rc != 0) { error 'hub org authorization failed' }
 
